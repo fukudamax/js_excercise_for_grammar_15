@@ -16,7 +16,34 @@
 //       - _remainingSecondsの値を1減らす(デクリメントする)
 //       - タイマーの名前と現在の_remainingSecondsの値をconsole.logで出力する
 //     - _isRunningがfalse、もしくは_remainingSeconds以下のときは何もしない
+class KitchenTimer = {
+	
+	constructor(name){
+		this._name=name;
+		this._remainingSeconds=0;
+		this._isRunning=false;
+		window.setInterval(function(){
+			if(this._isRunning===true && this._remainingSeconds>1){
+				this._remainingSeconds--;
+				console.log(this._name,this._remainingSeconds)
+			}else if(this._isRunning===false || this._remainingSeconds){}
 
+		})
+		
+	};
+	
+	setSeconds(){
+		this._remainingSeconds=remainingSeconds--;
+		
+	}
+	start(){
+					this._isRunning=true;
+	}
+	stop(){
+							this._isRunning=false;
+	}
+
+}
 
 
 // 課題2: KitchenTimerクラスのインスタンスを2つ生成して、それぞれのインスタンスの_remainingSecondsにメソッド経由で3秒と5秒をセットする
